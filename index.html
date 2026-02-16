@@ -8,17 +8,18 @@
 <style>
 body {
   background: url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top;
-  background-size: 100% auto; /* 横幅に合わせて縦は自動 */
-  background-attachment: scroll;
+  background-size: cover;       /* 横幅・縦幅ともに画面にフィット */
+  background-attachment: fixed; /* デスクトップでゆっくりスクロール */
 }
 
 @media (max-width: 600px) {
   body {
-    background-size: 100% auto; /* 横幅にフィット、縦は自動 */
-    background-position: top center;
-    background-attachment: scroll;
+    background-attachment: scroll; /* スマホは普通にスクロール */
+    background-size: cover;
+    background-position: center top;
   }
 }
+
 
 
 
@@ -305,9 +306,16 @@ toggles.forEach(btn => {
 });
 
 </script>
-
+<script>
+const body = document.body;
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  body.style.backgroundPosition = `center ${scrolled * 0.5}px`; // 0.5でゆっくり動く
+});
+</script>
 </body>
 </html>
+
 
 
 
