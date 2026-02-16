@@ -8,22 +8,22 @@
 <style>
 body {
   background: url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top;
-  background-size: contain;       /* 画像全体が収まるよう縮小 */
-  background-attachment: fixed;   /* ゆっくりスクロール */
+  background-size: 120% auto;   /* 少し拡大して迫力を残す */
+  background-attachment: fixed; /* ゆっくりスクロール */
   background-repeat: no-repeat;
-  background-color: #fff;         /* 背景の隙間を白に */
-  min-height: 100vh;
+  background-color: #fff;
   margin: 0;
+  min-height: 100vh;
 }
 
 @media (max-width: 600px) {
   body {
-    background-attachment: scroll; /* スマホでは固定しない */
-    background-size: contain;      /* 画面に収める */
+    background-size: 150% auto;   /* スマホでも迫力を残す */
     background-position: center top;
-    min-height: auto;
+    background-attachment: scroll; /* 固定は外す */
   }
 }
+
 
 
 
@@ -320,6 +320,7 @@ window.addEventListener('scroll', () => {
 </script>
 </body>
 </html>
+
 
 
 
