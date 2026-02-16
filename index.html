@@ -7,22 +7,19 @@
 
 <style>
 body {
-  margin: 0;
-  font-family: "Hiragino Mincho ProN", serif;
   background: url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top;
-  background-size: cover;
-  background-attachment: fixed;
-  color: #333;
+  background-size: 100% auto; /* 横幅に合わせて縦は自動 */
+  background-attachment: scroll;
 }
 
-/* スマホ用調整 */
 @media (max-width: 600px) {
   body {
-    background-attachment: scroll; /* 固定をやめる */
-    background-size: contain;      /* 画像の縦横比を保って収まる */
+    background-size: 100% auto; /* 横幅にフィット、縦は自動 */
     background-position: top center;
+    background-attachment: scroll;
   }
 }
+
 
 
 /* ナビゲーション */
@@ -311,6 +308,7 @@ toggles.forEach(btn => {
 
 </body>
 </html>
+
 
 
 
