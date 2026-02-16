@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>味覚</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Hiragino Mincho ProN", serif;
+  background: url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.PNG") no-repeat center top;
+  background-size: auto 100%; /* 高さに合わせて自動調整 */
+  background-attachment: scroll; /* fixed だとスマホでズレやすいので scroll に変更 */
+  color: #333;
+}
+
+
+/* ナビゲーション */
+nav {
+  background: rgba(47,79,63,0.9);
+  padding: 15px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 18px;
+  transition: 0.3s;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  transition: width 0.3s;
+  margin: auto;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ヘッダー */
+header {
+  background: rgba(0,0,0,0.6);
+  color: white;
+  text-align: center;
+  padding: 150px 20px;
+}
+
+header h1 {
+  font-size: 48px;
+  letter-spacing: 8px;
+}
+
+header p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* セクション共通 */
+section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+  background: rgba(255,255,255,0.9);
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 30px;
+  border-bottom: 2px solid #2f4f3f;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+/* メニュー */
+.menu-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.menu-card {
+  width: 260px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  background: white;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.menu-card-inner {
+  padding: 30px;
+}
+
+.menu-card h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.price {
+  font-size: 18px;
+  color: #2f4f3f;
+  margin-bottom: 15px;
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #2f4f3f;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #d4af37;
+}
+
+/* 詳細（巻物アニメーション用） */
+.details {
+  max-height: 0;
+  overflow: hidden;
+  text-align: left;
+  line-height: 1.6;
+  padding-left: 20px;
+  margin-top: 10px;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.menu-card.open .details {
+  max-height: 500px; /* 内容に応じて調整 */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* 店舗情報 */
+.info {
+  text-align: center;
+  line-height: 2;
+  font-size: 18px;
+}
+
+/* フッター */
+footer {
+  background: #2f4f3f;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  margin-top: 60px;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  .menu-card {
+    width: 100%;
+  }
+}
+
+/* スムーズスクロール */
+html {
+  scroll-behavior: smooth;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#top">トップ</a>
+  <a href="#menu">お品書き</a>
+  <a href="#info">店舗情報</a>
+</nav>
+
+<header id="top">
+  <h1>味覚</h1>
+  <p>うどん・そば・おにぎり</p>
+</header>
+
+<section id="menu">
+  <h2>お品書き</h2>
+
+  <div class="menu-container">
+
+    <!-- おにぎり -->
+    <div class="menu-card">
+      <div class="menu-card-inner">
+        <h3>おにぎり（各種）</h3>
+        <p class="price">¥200〜</p>
+        <button class="button toggle">詳細を見る</button>
+        <ul class="details">
+          <li>たらこ</li>
+          <li>筋子</li>
+          <li>男の味</li>
+          <li>しゃけ</li>
+          <li>明太子</li>
+          <li>辛子明太子</li>
+          <li>うめ</li>
+          <li>納豆</li>
+          <li>昆布</li>
+          <li>おかか</li>
+          <li>みそ</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- うどん・そば -->
+    <div class="menu-card">
+      <div class="menu-card-inner">
+        <h3>うどん そば（各種）</h3>
+        <p class="price">¥700〜</p>
+        <button class="button toggle">詳細を見る</button>
+        <ul class="details">
+          <li>かけ</li>
+          <li>納豆</li>
+          <li>天ぷら</li>
+          <li>にく</li>
+          <li>月見</li>
+          <li>きつね</li>
+          <li>わかめ</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- その他のメニュー -->
+    <div class="menu-card">
+      <div class="menu-card-inner">
+        <h3>その他のメニュー</h3>
+        <p class="price">¥100〜</p>
+        <button class="button toggle">詳細を見る</button>
+        <ul class="details">
+          <li>カレーライス</li>
+          <li>いなり</li>
+          <li>ゆで卵</li>
+          <li>つけもの</li>
+          <li>お味噌汁</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="info">
+  <h2>店舗情報</h2>
+  <div class="info">
+    <p>〒987-1221</p>
+    <p>宮城県石巻市須江糠塚1‑1</p>
+    <p>営業時間：8:00〜17:00</p>
+    <p>定休日：毎週水曜日・年末年始</p>
+
+    <iframe
+      width="100%"
+      height="300"
+      frameborder="0"
+      style="border:0"
+      src="https://maps.google.com/maps?q=38.495726750644515,141.23826170864143&z=16&output=embed"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+<footer>
+  © 2026 味覚
+</footer>
+
+<script>
+// 詳細だけを巻物のように開閉
+const toggles = document.querySelectorAll(".toggle");
+
+toggles.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const card = btn.closest(".menu-card");
+    if(card.classList.contains("open")) {
+      card.classList.remove("open");
+      btn.textContent = "詳細を見る";
+    } else {
+      card.classList.add("open");
+      btn.textContent = "閉じる";
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
