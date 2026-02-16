@@ -11,16 +11,16 @@ body {
   font-family: "Hiragino Mincho ProN", serif;
   background: url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top;
   background-size: cover;
-  background-attachment: fixed; /* デスクトップ用 */
+  background-attachment: fixed;
   color: #333;
 }
 
 /* スマホ用調整 */
 @media (max-width: 600px) {
   body {
-    background-attachment: scroll; /* fixed をやめる */
-    background-size: auto 100%; /* 高さに合わせて縮小 */
-    background-position: center top;
+    background-attachment: scroll; /* 固定をやめる */
+    background-size: contain;      /* 画像の縦横比を保って収まる */
+    background-position: top center;
   }
 }
 
@@ -311,5 +311,6 @@ toggles.forEach(btn => {
 
 </body>
 </html>
+
 
 
