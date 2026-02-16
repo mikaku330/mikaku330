@@ -8,13 +8,19 @@
 <style>
 body {
   margin: 0;
+  font-family: "Hiragino Mincho ProN", serif;
   min-height: 100vh;
+  color: #333;
+
+  /* 背景：写真＋和紙 */
   background:
-    url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top, /* メインの写真 */
-    url("washi.png") repeat; /* 和紙テクスチャ */
-  background-size: 120% auto, auto; /* 写真は少し拡大、和紙は繰り返す */
-  background-attachment: fixed, scroll; /* 写真はゆっくりスクロール、和紙は固定なし */
+    url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top,
+    url("washi.png") repeat;
+  background-size: 120% auto, auto;
+  background-attachment: fixed, scroll;
 }
+
+/* スマホ対応 */
 @media (max-width: 600px) {
   body {
     background-size: 150% auto, auto;
@@ -23,11 +29,6 @@ body {
   }
 }
 
-
-
-
-
-
 /* ナビゲーション */
 nav {
   background: rgba(47,79,63,0.9);
@@ -35,8 +36,8 @@ nav {
   text-align: center;
   position: sticky;
   top: 0;
+  z-index: 10;
 }
-
 nav a {
   color: white;
   text-decoration: none;
@@ -45,7 +46,6 @@ nav a {
   transition: 0.3s;
   position: relative;
 }
-
 nav a::after {
   content: '';
   display: block;
@@ -55,7 +55,6 @@ nav a::after {
   transition: width 0.3s;
   margin: auto;
 }
-
 nav a:hover::after {
   width: 100%;
 }
@@ -67,12 +66,10 @@ header {
   text-align: center;
   padding: 150px 20px;
 }
-
 header h1 {
   font-size: 48px;
   letter-spacing: 8px;
 }
-
 header p {
   font-size: 20px;
   margin-top: 10px;
@@ -111,8 +108,7 @@ h2 {
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   background: white;
   text-align: center;
-  overflow: hidden;
-  transition: all 0.5s ease;
+  margin-bottom: 20px;
 }
 
 .menu-card-inner {
@@ -140,26 +136,24 @@ h2 {
   transition: 0.3s;
   cursor: pointer;
 }
-
 .button:hover {
   background: #d4af37;
 }
 
-/* 詳細（巻物アニメーション用） */
+/* 詳細（巻物部分） */
 .details {
   max-height: 0;
   overflow: hidden;
+  transition: max-height 0.5s ease;
   text-align: left;
   line-height: 1.6;
   padding-left: 20px;
   margin-top: 10px;
-  transition: max-height 0.5s ease, padding 0.5s ease;
+  list-style: disc;
 }
 
-.menu-card.open .details {
-  max-height: 500px; /* 内容に応じて調整 */
-  padding-top: 10px;
-  padding-bottom: 10px;
+.details.open {
+  max-height: 1000px; /* 十分大きくして展開 */
 }
 
 /* 店舗情報 */
@@ -235,7 +229,7 @@ html {
     <!-- うどん・そば -->
     <div class="menu-card">
       <div class="menu-card-inner">
-        <h3>うどん そば（各種）</h3>
+        <h3>うどん・そば（各種）</h3>
         <p class="price">¥700〜</p>
         <button class="button toggle">詳細を見る</button>
         <ul class="details">
@@ -294,38 +288,16 @@ html {
 </footer>
 
 <script>
-// 詳細だけを巻物のように開閉
+// 詳細ボタンで表示・非表示切り替え（巻物アニメーション）
 const toggles = document.querySelectorAll(".toggle");
-
 toggles.forEach(btn => {
   btn.addEventListener("click", () => {
-    const card = btn.closest(".menu-card");
-    if(card.classList.contains("open")) {
-      card.classList.remove("open");
-      btn.textContent = "詳細を見る";
-    } else {
-      card.classList.add("open");
-      btn.textContent = "閉じる";
-    }
+    const details = btn.nextElementSibling;
+    details.classList.toggle("open");
+    btn.textContent = details.classList.contains("open") ? "閉じる" : "詳細を見る";
   });
 });
+</script>
 
-</script>
-<script>
-const body = document.body;
-window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY;
-  body.style.backgroundPosition = `center ${scrolled * 0.5}px`; // 0.5でゆっくり動く
-});
-</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
