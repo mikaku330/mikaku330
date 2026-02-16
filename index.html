@@ -7,22 +7,22 @@
 
 <style>
 body {
-  background: url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top;
-  background-size: 120% auto;   /* 少し拡大して迫力を残す */
-  background-attachment: fixed; /* ゆっくりスクロール */
-  background-repeat: no-repeat;
-  background-color: #fff;
   margin: 0;
   min-height: 100vh;
+  background:
+    url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top, /* メインの写真 */
+    url("washi.png") repeat; /* 和紙テクスチャ */
+  background-size: 120% auto, auto; /* 写真は少し拡大、和紙は繰り返す */
+  background-attachment: fixed, scroll; /* 写真はゆっくりスクロール、和紙は固定なし */
 }
-
 @media (max-width: 600px) {
   body {
-    background-size: 150% auto;   /* スマホでも迫力を残す */
-    background-position: center top;
-    background-attachment: scroll; /* 固定は外す */
+    background-size: 150% auto, auto;
+    background-position: center top, top left;
+    background-attachment: scroll, scroll;
   }
 }
+
 
 
 
@@ -320,6 +320,7 @@ window.addEventListener('scroll', () => {
 </script>
 </body>
 </html>
+
 
 
 
