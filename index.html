@@ -12,18 +12,18 @@ body {
   min-height: 100vh;
   color: #333;
 
-  /* 背景：写真＋和紙 */
+  /* 背景：写真＋和紙風カラー */
   background:
     url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top,
-    url("washi.png") repeat;
-  background-size: 120% auto, auto;
+    linear-gradient(135deg, #fdf6e3 25%, #f7ecd0 25%, #f7ecd0 50%, #fdf6e3 50%, #fdf6e3 75%, #f7ecd0 75%, #f7ecd0 100%);
+  background-size: 120% auto, 100px 100px; /* 写真は横幅に合わせて自動、和紙風は小さい格子でテクスチャ感 */
   background-attachment: scroll, scroll; /* JSでパララックス制御 */
 }
 
 /* スマホ対応 */
 @media (max-width: 600px) {
   body {
-    background-size: 150% auto, auto;
+    background-size: 150% auto, 60px 60px;
     background-position: center top, top left;
   }
 }
@@ -120,7 +120,7 @@ h2 {
   margin-top: 10px;
 }
 .details.open {
-  max-height: 1000px; /* たくさん項目があってもOK */
+  max-height: 1000px;
 }
 
 .menu-card-inner {
