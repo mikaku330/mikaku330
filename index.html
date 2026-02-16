@@ -17,7 +17,7 @@ body {
     url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top,
     url("washi.png") repeat;
   background-size: 120% auto, auto;
-  background-attachment: fixed, scroll;
+  background-attachment: scroll, scroll; /* JSでパララックス制御 */
 }
 
 /* スマホ対応 */
@@ -25,7 +25,6 @@ body {
   body {
     background-size: 150% auto, auto;
     background-position: center top, top left;
-    background-attachment: scroll, scroll;
   }
 }
 
@@ -36,7 +35,7 @@ nav {
   text-align: center;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
 }
 nav a {
   color: white;
@@ -111,6 +110,19 @@ h2 {
   margin-bottom: 20px;
 }
 
+/* 詳細は折りたたみ（巻物風） */
+.details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+.details.open {
+  max-height: 1000px; /* たくさん項目があってもOK */
+}
+
 .menu-card-inner {
   padding: 30px;
 }
@@ -138,22 +150,6 @@ h2 {
 }
 .button:hover {
   background: #d4af37;
-}
-
-/* 詳細（巻物部分） */
-.details {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
-  text-align: left;
-  line-height: 1.6;
-  padding-left: 20px;
-  margin-top: 10px;
-  list-style: disc;
-}
-
-.details.open {
-  max-height: 1000px; /* 十分大きくして展開 */
 }
 
 /* 店舗情報 */
@@ -204,7 +200,6 @@ html {
 
   <div class="menu-container">
 
-    <!-- おにぎり -->
     <div class="menu-card">
       <div class="menu-card-inner">
         <h3>おにぎり（各種）</h3>
@@ -226,7 +221,6 @@ html {
       </div>
     </div>
 
-    <!-- うどん・そば -->
     <div class="menu-card">
       <div class="menu-card-inner">
         <h3>うどん・そば（各種）</h3>
@@ -244,7 +238,6 @@ html {
       </div>
     </div>
 
-    <!-- その他のメニュー -->
     <div class="menu-card">
       <div class="menu-card-inner">
         <h3>その他のメニュー</h3>
@@ -288,7 +281,7 @@ html {
 </footer>
 
 <script>
-// 詳細ボタンで表示・非表示切り替え（巻物アニメーション）
+// 詳細ボタンで表示・非表示切り替え
 const toggles = document.querySelectorAll(".toggle");
 toggles.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -296,6 +289,12 @@ toggles.forEach(btn => {
     details.classList.toggle("open");
     btn.textContent = details.classList.contains("open") ? "閉じる" : "詳細を見る";
   });
+});
+
+// 背景パララックス
+window.addEventListener("scroll", () => {
+  const scrolled = window.scrollY;
+  document.body.style.backgroundPosition = `center ${-scrolled*0.3}px, top left`;
 });
 </script>
 
