@@ -2,185 +2,180 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="google-site-verification" content="ここに貼る">
-  <title>味覚</title>
-</head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="宮城県石巻市のうどん・そば・おにぎりのお店 味覚の公式サイトです。">
+  <title>味覚｜宮城県石巻市のうどん・そば・おにぎり</title>
 
-<style>
-body {
-  margin: 0;
-  font-family: "Hiragino Mincho ProN", serif;
-  min-height: 100vh;
-  color: #333;
+  <style>
+    body {
+      margin: 0;
+      font-family: "Hiragino Mincho ProN", serif;
+      min-height: 100vh;
+      color: #333;
+      background:
+        url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top,
+        linear-gradient(135deg, #fdf6e3 25%, #f7ecd0 25%, #f7ecd0 50%, #fdf6e3 50%, #fdf6e3 75%, #f7ecd0 75%, #f7ecd0 100%);
+      background-size: 120% auto, 100px 100px;
+      background-attachment: scroll, scroll;
+    }
 
-  /* 背景：写真＋和紙風カラー */
-  background:
-    url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top,
-    linear-gradient(135deg, #fdf6e3 25%, #f7ecd0 25%, #f7ecd0 50%, #fdf6e3 50%, #fdf6e3 75%, #f7ecd0 75%, #f7ecd0 100%);
-  background-size: 120% auto, 100px 100px; /* 写真は横幅に合わせて自動、和紙風は小さい格子でテクスチャ感 */
-  background-attachment: scroll, scroll; /* JSでパララックス制御 */
-}
+    @media (max-width: 600px) {
+      body {
+        background-size: 150% auto, 60px 60px;
+        background-position: center top, top left;
+      }
+    }
 
-/* スマホ対応 */
-@media (max-width: 600px) {
-  body {
-    background-size: 150% auto, 60px 60px;
-    background-position: center top, top left;
-  }
-}
+    nav {
+      background: rgba(47,79,63,0.9);
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-/* ナビゲーション */
-nav {
-  background: rgba(47,79,63,0.9);
-  padding: 15px;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 20px;
-  font-size: 18px;
-  transition: 0.3s;
-  position: relative;
-}
-nav a::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background: #d4af37;
-  transition: width 0.3s;
-  margin: auto;
-}
-nav a:hover::after {
-  width: 100%;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      transition: 0.3s;
+      position: relative;
+    }
 
-/* ヘッダー */
-header {
-  background: rgba(0,0,0,0.6);
-  color: white;
-  text-align: center;
-  padding: 150px 20px;
-}
-header h1 {
-  font-size: 48px;
-  letter-spacing: 8px;
-}
-header p {
-  font-size: 20px;
-  margin-top: 10px;
-}
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #d4af37;
+      transition: width 0.3s;
+      margin: auto;
+    }
 
-/* セクション共通 */
-section {
-  padding: 80px 20px;
-  max-width: 1100px;
-  margin: auto;
-  background: rgba(255,255,255,0.9);
-  margin-top: 40px;
-  border-radius: 10px;
-}
+    nav a:hover::after {
+      width: 100%;
+    }
 
-h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 30px;
-  border-bottom: 2px solid #2f4f3f;
-  display: inline-block;
-  padding-bottom: 10px;
-}
+    header {
+      background: rgba(0,0,0,0.6);
+      color: white;
+      text-align: center;
+      padding: 150px 20px;
+    }
 
-/* メニュー */
-.menu-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
+    header h1 {
+      font-size: 48px;
+      letter-spacing: 8px;
+    }
 
-.menu-card {
-  width: 260px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  background: white;
-  text-align: center;
-  margin-bottom: 20px;
-}
+    header p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
 
-/* 詳細は折りたたみ（巻物風） */
-.details {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
-  list-style: disc;
-  padding-left: 20px;
-  margin-top: 10px;
-}
-.details.open {
-  max-height: 1000px;
-}
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+      background: rgba(255,255,255,0.9);
+      margin-top: 40px;
+      border-radius: 10px;
+    }
 
-.menu-card-inner {
-  padding: 30px;
-}
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 30px;
+      border-bottom: 2px solid #2f4f3f;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
 
-.menu-card h3 {
-  margin-bottom: 10px;
-  font-size: 22px;
-}
+    .menu-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
 
-.price {
-  font-size: 18px;
-  color: #2f4f3f;
-  margin-bottom: 15px;
-}
+    .menu-card {
+      width: 260px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      background: white;
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-.button {
-  display: inline-block;
-  padding: 8px 20px;
-  background: #2f4f3f;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-.button:hover {
-  background: #d4af37;
-}
+    .menu-card-inner {
+      padding: 30px;
+    }
 
-/* 店舗情報 */
-.info {
-  text-align: center;
-  line-height: 2;
-  font-size: 18px;
-}
+    .menu-card h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
 
-/* フッター */
-footer {
-  background: #2f4f3f;
-  color: white;
-  text-align: center;
-  padding: 30px;
-  margin-top: 60px;
-}
+    .price {
+      font-size: 18px;
+      color: #2f4f3f;
+      margin-bottom: 15px;
+    }
 
-/* スマホ対応 */
-@media (max-width: 600px) {
-  .menu-card {
-    width: 100%;
-  }
-}
+    .details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      list-style: disc;
+      padding-left: 20px;
+      margin-top: 10px;
+    }
 
-/* スムーズスクロール */
-html {
-  scroll-behavior: smooth;
-}
-</style>
+    .details.open {
+      max-height: 1000px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 8px 20px;
+      background: #2f4f3f;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      border: none;
+    }
+
+    .button:hover {
+      background: #d4af37;
+    }
+
+    .info {
+      text-align: center;
+      line-height: 2;
+      font-size: 18px;
+    }
+
+    footer {
+      background: #2f4f3f;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 60px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 600px) {
+      .menu-card {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -198,7 +193,6 @@ html {
 
 <section id="menu">
   <h2>お品書き</h2>
-
   <div class="menu-container">
 
     <div class="menu-card">
@@ -207,17 +201,10 @@ html {
         <p class="price">¥200〜</p>
         <button class="button toggle">詳細を見る</button>
         <ul class="details">
-          <li>たらこ</li>
-          <li>筋子</li>
-          <li>男の味</li>
-          <li>しゃけ</li>
-          <li>明太子</li>
-          <li>辛子明太子</li>
-          <li>うめ</li>
-          <li>納豆</li>
-          <li>昆布</li>
-          <li>おかか</li>
-          <li>みそ</li>
+          <li>たらこ</li><li>筋子</li><li>男の味</li>
+          <li>しゃけ</li><li>明太子</li><li>辛子明太子</li>
+          <li>うめ</li><li>納豆</li><li>昆布</li>
+          <li>おかか</li><li>みそ</li>
         </ul>
       </div>
     </div>
@@ -228,28 +215,8 @@ html {
         <p class="price">¥700〜</p>
         <button class="button toggle">詳細を見る</button>
         <ul class="details">
-          <li>かけ</li>
-          <li>納豆</li>
-          <li>天ぷら</li>
-          <li>にく</li>
-          <li>月見</li>
-          <li>きつね</li>
-          <li>わかめ</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="menu-card">
-      <div class="menu-card-inner">
-        <h3>その他のメニュー</h3>
-        <p class="price">¥100〜</p>
-        <button class="button toggle">詳細を見る</button>
-        <ul class="details">
-          <li>カレーライス</li>
-          <li>いなり</li>
-          <li>ゆで卵</li>
-          <li>つけもの</li>
-          <li>お味噌汁</li>
+          <li>かけ</li><li>納豆</li><li>天ぷら</li>
+          <li>にく</li><li>月見</li><li>きつね</li><li>わかめ</li>
         </ul>
       </div>
     </div>
@@ -261,19 +228,9 @@ html {
   <h2>店舗情報</h2>
   <div class="info">
     <p>〒987-1221</p>
-    <p>宮城県石巻市須江糠塚1‑1</p>
+    <p>宮城県石巻市須江糠塚1-1</p>
     <p>営業時間：8:00〜17:00</p>
     <p>定休日：毎週水曜日・年末年始</p>
-
-    <iframe
-      width="100%"
-      height="300"
-      frameborder="0"
-      style="border:0"
-      src="https://maps.google.com/maps?q=38.495726750644515,141.23826170864143&z=16&output=embed"
-      allowfullscreen=""
-      loading="lazy">
-    </iframe>
   </div>
 </section>
 
@@ -282,7 +239,6 @@ html {
 </footer>
 
 <script>
-// 詳細ボタンで表示・非表示切り替え
 const toggles = document.querySelectorAll(".toggle");
 toggles.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -291,14 +247,7 @@ toggles.forEach(btn => {
     btn.textContent = details.classList.contains("open") ? "閉じる" : "詳細を見る";
   });
 });
-
-// 背景パララックス
-window.addEventListener("scroll", () => {
-  const scrolled = window.scrollY;
-  document.body.style.backgroundPosition = `center ${-scrolled*0.3}px, top left`;
-});
 </script>
 
 </body>
 </html>
-
