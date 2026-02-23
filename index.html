@@ -1,181 +1,176 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="宮城県石巻市のうどん・そば・おにぎりのお店 味覚の公式サイトです。">
-  <title>味覚｜宮城県石巻市のうどん・そば・おにぎり</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="宮城県石巻市のうどん・そば・おにぎりのお店『味覚』公式サイト。朝8時から営業。店内飲食・テイクアウト対応。">
+<title>味覚｜石巻市のうどん・そば・おにぎり</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Hiragino Mincho ProN", serif;
-      min-height: 100vh;
-      color: #333;
-      background:
-        url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top,
-        linear-gradient(135deg, #fdf6e3 25%, #f7ecd0 25%, #f7ecd0 50%, #fdf6e3 50%, #fdf6e3 75%, #f7ecd0 75%, #f7ecd0 100%);
-      background-size: 120% auto, 100px 100px;
-      background-attachment: scroll, scroll;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: "Hiragino Mincho ProN", serif;
+  min-height: 100vh;
+  color: #333;
+  background:
+    url("1ca126c7-c550-4c60-a680-f34b2d65a4f0.png") no-repeat center top,
+    radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    #fdf6e3;
+  background-size: 120% auto, 20px 20px, auto;
+}
 
-    @media (max-width: 600px) {
-      body {
-        background-size: 150% auto, 60px 60px;
-        background-position: center top, top left;
-      }
-    }
+@media (max-width: 600px) {
+  body {
+    background-size: 150% auto, auto;
+  }
+}
 
-    nav {
-      background: rgba(47,79,63,0.9);
-      padding: 15px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+nav {
+  background: rgba(47,79,63,0.95);
+  padding: 15px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 20px;
-      font-size: 18px;
-      transition: 0.3s;
-      position: relative;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 18px;
+  position: relative;
+}
 
-    nav a::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background: #d4af37;
-      transition: width 0.3s;
-      margin: auto;
-    }
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  transition: 0.3s;
+  margin: auto;
+}
 
-    nav a:hover::after {
-      width: 100%;
-    }
+nav a:hover::after {
+  width: 100%;
+}
 
-    header {
-      background: rgba(0,0,0,0.6);
-      color: white;
-      text-align: center;
-      padding: 150px 20px;
-    }
+header {
+  background: rgba(0,0,0,0.6);
+  color: white;
+  text-align: center;
+  padding: 150px 20px;
+}
 
-    header h1 {
-      font-size: 48px;
-      letter-spacing: 8px;
-    }
+header h1 {
+  font-size: 48px;
+  letter-spacing: 8px;
+  margin: 0;
+}
 
-    header p {
-      font-size: 20px;
-      margin-top: 10px;
-    }
+header p {
+  font-size: 20px;
+  margin-top: 10px;
+}
 
-    section {
-      padding: 80px 20px;
-      max-width: 1100px;
-      margin: auto;
-      background: rgba(255,255,255,0.9);
-      margin-top: 40px;
-      border-radius: 10px;
-    }
+section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: 40px auto 0;
+  background: rgba(255,255,255,0.95);
+  border-radius: 10px;
+}
 
-    h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 30px;
-      border-bottom: 2px solid #2f4f3f;
-      display: inline-block;
-      padding-bottom: 10px;
-    }
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 42px; /* 30px × 1.4 = 42px */
+  font-family: "Brush Script MT", "Yu Mincho", cursive;
+  border-bottom: 2px solid #2f4f3f;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+.menu-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
 
-    .menu-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
+.menu-card {
+  width: 260px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  background: white;
+  text-align: center;
+}
 
-    .menu-card {
-      width: 260px;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      background: white;
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.menu-card-inner {
+  padding: 30px;
+}
 
-    .menu-card-inner {
-      padding: 30px;
-    }
+.menu-card h3 {
+  font-size: 22px;
+}
 
-    .menu-card h3 {
-      margin-bottom: 10px;
-      font-size: 22px;
-    }
+.price {
+  font-size: 18px;
+  color: #2f4f3f;
+  margin-bottom: 15px;
+}
 
-    .price {
-      font-size: 18px;
-      color: #2f4f3f;
-      margin-bottom: 15px;
-    }
+.details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+  text-align: left;
+}
 
-    .details {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease;
-      list-style: disc;
-      padding-left: 20px;
-      margin-top: 10px;
-    }
+.details.open {
+  max-height: 1000px;
+}
 
-    .details.open {
-      max-height: 1000px;
-    }
+.button {
+  padding: 8px 20px;
+  background: #2f4f3f;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
 
-    .button {
-      display: inline-block;
-      padding: 8px 20px;
-      background: #2f4f3f;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s;
-      border: none;
-    }
+.button:hover {
+  background: #d4af37;
+}
 
-    .button:hover {
-      background: #d4af37;
-    }
+.info {
+  text-align: center;
+  line-height: 2;
+  font-size: 18px;
+}
 
-    .info {
-      text-align: center;
-      line-height: 2;
-      font-size: 18px;
-    }
+footer {
+  background: #2f4f3f;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  margin-top: 60px;
+}
 
-    footer {
-      background: #2f4f3f;
-      color: white;
-      text-align: center;
-      padding: 30px;
-      margin-top: 60px;
-    }
+@media (max-width: 600px) {
+  .menu-card {
+    width: 100%;
+  }
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    @media (max-width: 600px) {
-      .menu-card {
-        width: 100%;
-      }
-    }
-  </style>
+html {
+  scroll-behavior: smooth;
+}
+</style>
 </head>
 
 <body>
@@ -192,50 +187,88 @@
 </header>
 
 <section id="menu">
-  <h2>お品書き</h2>
-  <div class="menu-container">
+<h2>お品書き</h2>
+<div class="menu-container">
 
-    <div class="menu-card">
-      <div class="menu-card-inner">
-        <h3>おにぎり（各種）</h3>
-        <p class="price">¥200〜</p>
-        <button class="button toggle">詳細を見る</button>
-        <ul class="details">
-          <li>たらこ</li><li>筋子</li><li>男の味</li>
-          <li>しゃけ</li><li>明太子</li><li>辛子明太子</li>
-          <li>うめ</li><li>納豆</li><li>昆布</li>
-          <li>おかか</li><li>みそ</li>
-        </ul>
-      </div>
-    </div>
+<div class="menu-card">
+<div class="menu-card-inner">
+<h3>おにぎり（各種）</h3>
+<p class="price">¥200〜</p>
+<button class="button toggle">詳細を見る</button>
+<ul class="details">
+<li>たらこ</li>
+<li>筋子</li>
+<li>男の味</li>
+<li>しゃけ</li>
+<li>明太子</li>
+<li>辛子明太子</li>
+<li>うめ</li>
+<li>納豆</li>
+<li>昆布</li>
+<li>おかか</li>
+<li>みそ</li>
+</ul>
+</div>
+</div>
 
-    <div class="menu-card">
-      <div class="menu-card-inner">
-        <h3>うどん・そば（各種）</h3>
-        <p class="price">¥700〜</p>
-        <button class="button toggle">詳細を見る</button>
-        <ul class="details">
-          <li>かけ</li><li>納豆</li><li>天ぷら</li>
-          <li>にく</li><li>月見</li><li>きつね</li><li>わかめ</li>
-        </ul>
-      </div>
-    </div>
+<div class="menu-card">
+<div class="menu-card-inner">
+<h3>うどん・そば（各種）</h3>
+<p class="price">¥700〜</p>
+<button class="button toggle">詳細を見る</button>
+<ul class="details">
+<li>かけ</li>
+<li>納豆</li>
+<li>天ぷら</li>
+<li>にく</li>
+<li>月見</li>
+<li>きつね</li>
+<li>わかめ</li>
+</ul>
+</div>
+</div>
 
-  </div>
+<div class="menu-card">
+<div class="menu-card-inner">
+<h3>その他のメニュー</h3>
+<p class="price">¥100〜</p>
+<button class="button toggle">詳細を見る</button>
+<ul class="details">
+<li>カレーライス</li>
+<li>いなり</li>
+<li>ゆで卵</li>
+<li>つけもの</li>
+<li>お味噌汁</li>
+</ul>
+</div>
+</div>
+
+</div>
 </section>
 
 <section id="info">
-  <h2>店舗情報</h2>
-  <div class="info">
-    <p>〒987-1221</p>
-    <p>宮城県石巻市須江糠塚1-1</p>
-    <p>営業時間：8:00〜17:00</p>
-    <p>定休日：毎週水曜日・年末年始</p>
-  </div>
+<h2>店舗情報</h2>
+<div class="info">
+<p>〒987-1221</p>
+<p>宮城県石巻市須江糠塚1-1</p>
+<p>営業時間：8:00〜17:00</p>
+<p>定休日：毎週水曜日・年末年始</p>
+<p><strong>お支払い方法：現金のみ</strong></p>
+
+<iframe
+width="100%"
+height="300"
+style="border:0"
+src="https://maps.google.com/maps?q=38.495726750644515,141.23826170864143&z=16&output=embed"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+
+</div>
 </section>
 
 <footer>
-  © 2026 味覚
+© 2026 味覚
 </footer>
 
 <script>
@@ -246,6 +279,12 @@ toggles.forEach(btn => {
     details.classList.toggle("open");
     btn.textContent = details.classList.contains("open") ? "閉じる" : "詳細を見る";
   });
+});
+
+window.addEventListener("scroll", () => {
+  const scrolled = window.scrollY;
+  document.body.style.backgroundPosition =
+    `center ${-scrolled*0.3}px, top left, center`;
 });
 </script>
 
